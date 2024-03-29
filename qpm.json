@@ -68,6 +68,11 @@
       "id": "kaleb",
       "versionRange": "^0.1.9",
       "additionalData": {}
+    },
+    {
+      "id": "bsml",
+      "versionRange": "^0.4.17",
+      "additionalData": {}
     }
   ]
 }

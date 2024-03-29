@@ -1,5 +1,6 @@
 # include some defines automatically made by qpm
 include(qpm_defines.cmake)
+include(${EXTERN_DIR}/includes/kaleb/shared/cmake/assets.cmake)
 
 # override mod id
 set(MOD_ID "umbrella-promo")
@@ -27,7 +28,7 @@ set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # compile options used
 add_compile_options(-frtti -fexceptions)
-add_compile_options(-O3)
+add_compile_options(-O0)
 # compile definitions used
 add_compile_definitions(VERSION=\"${MOD_VERSION}\")
 add_compile_definitions(MOD_ID=\"${MOD_ID}\")
@@ -44,6 +45,9 @@ add_library(
         ${c_file_list}
 )
 
+# Add any assets
+add_assets(assets_${COMPILE_ID} STATIC ${CMAKE_CURRENT_LIST_DIR}/assets ${INCLUDE_DIR}/assets.hpp)
+
 target_include_directories(${COMPILE_ID} PRIVATE .)
 
 # add src dir as include dir
@@ -56,6 +60,7 @@ target_include_directories(${COMPILE_ID} PUBLIC ${SHARED_DIR})
 target_include_directories(${COMPILE_ID} PRIVATE ${EXTERN_DIR}/includes/${CODEGEN_ID}/include)
 
 target_link_libraries(${COMPILE_ID} PRIVATE -llog)
+target_link_libraries(${COMPILE_ID} PRIVATE assets_${COMPILE_ID})
 # add extern stuff like libs and other includes
 include(extern.cmake)
 
