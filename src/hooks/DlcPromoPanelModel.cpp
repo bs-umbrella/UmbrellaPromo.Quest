@@ -51,11 +51,27 @@ MAKE_AUTO_HOOK_MATCH(DlcPromoPanelModel_GetPackDataForMainMenuPromoBanner, &DlcP
         return self->_defaultPromoInfo;
     }
 
+    int totalWeight = 0;
+
+    for (auto promo : filteredPromos) {
+        totalWeight += promo->weight;
+    }
+
+    Umbrella::Promo* promo;
+
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, filteredPromos.size() - 1);
+    std::uniform_int_distribution<> dis(0, totalWeight);
+    auto goalWeight = dis(gen);
 
-    auto promo = filteredPromos[dis(gen)];
+    for (auto toFilterPromo : filteredPromos) {
+        UmbrellaLogger.info("Promo: {} Weight: {}", toFilterPromo->promoInfo->id, toFilterPromo->weight);
+        totalWeight -= toFilterPromo->weight;
+        if(totalWeight <= goalWeight) {
+            promo = toFilterPromo;
+            break;
+        }
+    }
 
     if(!promo->promoInfo) {
         UmbrellaLogger.info("Selected Promo is null, returning nullptr");

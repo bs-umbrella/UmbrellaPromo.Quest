@@ -13,10 +13,11 @@ namespace Umbrella {
     class Promo {
     public:
         Promo() = default;
-        Promo(std::string promoId, PromoType promoType, bool supportedOnQuest, SafePtr<GlobalNamespace::DlcPromoPanelModel::PromoInfo> promoInfo) : promoId(promoId), promoType(promoType), supportedOnQuest(supportedOnQuest), promoInfo(promoInfo) {}
+        Promo(std::string promoId, PromoType promoType, bool supportedOnQuest, int weight, SafePtr<GlobalNamespace::DlcPromoPanelModel::PromoInfo> promoInfo) : promoId(promoId), promoType(promoType), supportedOnQuest(supportedOnQuest), weight(weight), promoInfo(promoInfo) {}
         std::string promoId;
         PromoType promoType;
         bool supportedOnQuest;
+        int weight = 1;
         SafePtr<GlobalNamespace::DlcPromoPanelModel::PromoInfo> promoInfo;
     };
 

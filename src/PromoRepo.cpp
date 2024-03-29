@@ -20,9 +20,9 @@ void Umbrella::PromoRepo::RegisterPromos(DlcPromoPanelModel* promoModel) {
     promoInfo->id = "custom_levelpack_CustomLevels";
     promoInfo->contentRating = PlayerSensitivityFlag::Safe;
     promoInfo->bannerImage = BSML::Utilities::LoadSpriteRaw(Assets::Customs_Banner_Notepad_png);
-    promoInfo->bannerPromoText = "";
-    promoInfo->bannerPromoTextPosition = -420.69f;
-    auto customLevelsRepo = new Promo("custom_levels", PromoType::CustomLevels, true, promoInfo);
+    promoInfo->bannerPromoText = "<size=150%>Custom Levels";
+    promoInfo->bannerPromoTextPosition = 37.0f;
+    auto customLevelsRepo = new Promo("custom_levels", PromoType::CustomLevels, true, 15, promoInfo);
     RegisterPromo(customLevelsRepo);
 
     ListW<GlobalNamespace::DlcPromoPanelModel::PromoInfo*> promoInfos = ListW<GlobalNamespace::DlcPromoPanelModel::PromoInfo*>::New();
