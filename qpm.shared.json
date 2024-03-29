@@ -76,6 +76,11 @@
         "id": "bsml",
         "versionRange": "^0.4.17",
         "additionalData": {}
+      },
+      {
+        "id": "libcurl",
+        "versionRange": "^8.5.0",
+        "additionalData": {}
       }
     ]
   },
@@ -184,6 +189,19 @@
         }
       },
       "version": "3500.0.0"
+    },
+    {
+      "dependency": {
+        "id": "libcurl",
+        "versionRange": "=8.5.0",
+        "additionalData": {
+          "staticLinking": true,
+          "soLink": "https://github.com/darknight1050/openssl-curl-android/releases/download/v8.5.0/libcurl.a",
+          "overrideSoName": "libcurl.a",
+          "branchName": "version-v8.5.0"
+        }
+      },
+      "version": "8.5.0"
     },
     {
       "dependency": {

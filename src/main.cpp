@@ -2,6 +2,8 @@
 
 #include "hooking.hpp"
 
+#include "PromoRepo.hpp"
+
 static modloader::ModInfo modInfo{MOD_ID, VERSION, 0};
 
 Configuration &getConfig() {
@@ -27,4 +29,6 @@ MOD_EXPORT void late_load() noexcept {
   Umbrella::Hooking::InstallHooks();
 
   UmbrellaLogger.info("Installed all hooks!");
+
+  Umbrella::PromoRepo::RegisterCustomPromos();
 }

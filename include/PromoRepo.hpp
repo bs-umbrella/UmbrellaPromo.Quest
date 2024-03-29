@@ -23,7 +23,8 @@ namespace Umbrella {
 
     class PromoRepo {
     public:
-        static void RegisterPromos(GlobalNamespace::DlcPromoPanelModel* promoModel);
+        static void RegisterCustomPromos();
+        static void RegisterAdditionalPromos(GlobalNamespace::DlcPromoPanelModel* promoModel);
         static void RegisterPromo(Umbrella::Promo* promo);
         static std::vector<Umbrella::Promo*> GetPromos();
         static bool HasRegistered();

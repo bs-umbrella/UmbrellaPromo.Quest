@@ -20,7 +20,7 @@ MAKE_AUTO_HOOK_MATCH(DlcPromoPanelModel_GetPackDataForMainMenuPromoBanner, &DlcP
     // Check for registration
     if(!Umbrella::PromoRepo::HasRegistered()) {
         UmbrellaLogger.info("PromoRepo has not registered promos, registering promos...");
-        Umbrella::PromoRepo::RegisterPromos(self);
+        Umbrella::PromoRepo::RegisterAdditionalPromos(self);
     }
 
     //TODO: If user selects no promo return null here
